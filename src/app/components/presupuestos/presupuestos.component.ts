@@ -15,6 +15,7 @@ export class PresupuestosComponent implements OnInit {
   Items: Presupuesto[] = [];
   EstadoForm: string;
   FormReg: FormGroup;
+
   submitted = false;
 
   constructor(private presupuestosService: PresupuestosService, private formBuilder: FormBuilder) { }
@@ -25,11 +26,9 @@ export class PresupuestosComponent implements OnInit {
         this.getPresupuesto();
         this.FormReg = this.formBuilder.group({
          IdPresupuesto:[0],
-         PresupuestoDescripcion: ['',[Validators.required, Validators.maxLength(50)]],
-         PresupuestoImporte: ['',[Validators.required]],
-    }
-     
-    );
+         PresupuestoDescripcion: ['',[Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+         PresupuestoImporte: ['',[Validators.required, Validators.pattern("[0-9]{1,7}")]],
+    });
   }
   getPresupuesto(){
      this.presupuestosService.get()
@@ -69,6 +68,8 @@ export class PresupuestosComponent implements OnInit {
 
   Volver() {
     this.EstadoForm = "L";
+    this.FormReg.reset();
+
   };
 
 
