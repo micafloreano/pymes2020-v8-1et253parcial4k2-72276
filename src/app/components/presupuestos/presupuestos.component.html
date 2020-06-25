@@ -1,1 +1,49 @@
-<p>wORKS</p>
+<div class="container">
+
+	<div *ngIf="EstadoForm == 'L'">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th class="text-center">Id</th>
+					<th class="text-center">Descripcion</th>
+					<th class="text-center">Importe</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of Items">
+					<td>{{item.IdPresupuesto}}</td>
+					<td>{{item.PresupuestoDescripcion}}</td>
+					<td>{{item.PresupuestoImporte}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<input name="" id=""  class="btn btn-success" type = "button"  value= "Alta"(click) = 'Alta()'>
+
+</div>
+		<div *ngIf="EstadoForm == 'A'">
+			<h3>Registrar Presupuesto</h3>
+			<form name="FormReg" [formGroup]='FormReg' class="bg-light">
+				<div class="form-group">
+					<label for="PresupuestoDescripcion">Descripcion</label>
+					<input type="date" class="form-control" formControlName= "PresupuestoDescripcion" id= "PresupuestoDescripcion"/>
+   </div>
+					<div class="form-group">
+						<label for="PresupuestoImporte">Importe</label>
+						<input type="number" class="form-control" formControlName= "PresupuestoImporte" id="PresupuestoImporte"/>
+  </div>
+
+
+						<div class="row justify-content-center">
+							<button type="button"  class="btn btn-primary" (click)="Almacenar()">
+            <span class="fas fa-check"></span> Almacenar
+        </button>
+							&nbsp;
+							<button type="button" class="btn btn-warning" (click)="Volver()">
+            <span class="fas fa-undo"></span> 
+        Volver</button>
+						</div>
+			</form>
+		</div>
+
+
+	</div>
