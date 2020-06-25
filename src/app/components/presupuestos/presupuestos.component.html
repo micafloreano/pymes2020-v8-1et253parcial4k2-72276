@@ -23,10 +23,11 @@
 		<div *ngIf="EstadoForm == 'A'">
 			<h3>Registrar Presupuesto</h3>
 			<form name="FormReg" [formGroup]='FormReg' class="bg-light">
-				<div class="form-group">
-					<label for="PresupuestoDescripcion">Descripcion</label>
-					<input type="date" class="form-control" formControlName= "PresupuestoDescripcion" id= "PresupuestoDescripcion"/>
-   </div>
+
+   					<div class="form-group">
+						<label for="PresupuestoDescripcion">Descripcion</label>
+						<input type="text" class="form-control" formControlName= "PresupuestoDescripcion" id="PresupuestoDescripcion"/>
+  </div>
 					<div class="form-group">
 						<label for="PresupuestoImporte">Importe</label>
 						<input type="number" class="form-control" formControlName= "PresupuestoImporte" id="PresupuestoImporte"/>
@@ -34,8 +35,8 @@
 
 
 						<div class="row justify-content-center">
-							<button type="button"  class="btn btn-primary" (click)="Almacenar()">
-            <span class="fas fa-check"></span> Almacenar
+							<button type="button"  class="btn btn-primary" (click)="Alta()">
+            <span class="fas fa-check"></span> Grabar
         </button>
 							&nbsp;
 							<button type="button" class="btn btn-warning" (click)="Volver()">

@@ -58,12 +58,11 @@ export class PresupuestosComponent implements OnInit {
     const itemCopy = { ...this.FormReg.value };
 
     // agregar post
-    itemCopy.IdEquipo = 0;
+    itemCopy.IdPresupuesto = 0;
     this.presupuestosService.post(itemCopy).subscribe((res: any) => {
         this.getPresupuesto();
         this.Volver();
-        
-      //t.Alert('Registro agregado correctamente.');
+
      });
     }
   
