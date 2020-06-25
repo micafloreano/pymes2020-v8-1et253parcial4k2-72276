@@ -27,6 +27,14 @@
    					<div class="form-group">
 						<label for="PresupuestoDescripcion">Descripcion</label>
 						<input type="text" class="form-control" formControlName= "PresupuestoDescripcion" id="PresupuestoDescripcion"/>
+            <span class="text-danger" *ngIf="(FormReg.controls.Nombre.touched || submitted) 
+                        && FormReg.controls.Nombre.errors?.required">
+                    Dato requerido.
+                </span>
+                <span class="text-danger" *ngIf="(FormReg.controls.Nombre.touched || submitted) 
+                       && (FormReg.controls.Nombre.errors?.minlength || FormReg.controls.Nombre.errors?.maxlength) ">
+                    Dato texto, 4 a 55 caracteres.
+                </span>
   </div>
 					<div class="form-group">
 						<label for="PresupuestoImporte">Importe</label>
@@ -36,7 +44,7 @@
 
 						<div class="row justify-content-center">
 							<button type="button"  class="btn btn-primary" (click)="Alta()">
-            <span class="fas fa-check"></span> Grabar
+            <span class="fas fa-check"></span> Aceptar
         </button>
 							&nbsp;
 							<button type="button" class="btn btn-warning" (click)="Volver()">

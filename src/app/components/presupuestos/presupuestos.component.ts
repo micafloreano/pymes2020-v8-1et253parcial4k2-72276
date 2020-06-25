@@ -25,7 +25,7 @@ export class PresupuestosComponent implements OnInit {
         this.getPresupuesto();
         this.FormReg = this.formBuilder.group({
          IdPresupuesto:[0],
-         PresupuestoDescripcion: ['',[Validators.required]],
+         PresupuestoDescripcion: ['',[Validators.required, Validators.maxLength(50)]],
          PresupuestoImporte: ['',[Validators.required]],
     }
      
